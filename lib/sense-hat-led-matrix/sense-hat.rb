@@ -10,9 +10,11 @@ module SenseHatAPI
   
   class SenseHat
     def initialize(framebuffer: '/dev/fb1', back_colour: BLACK)
+      @framebuffer = framebuffer
+      
       # since we wish to address as [x, y], x must address a vector of y pixels
-      ypixels = (back_colour * SH_ROWS).combination(back_colour.length).to_a
-      @canvas = (ypixels * SH_COLS).combination(SH_ROWS)
+      ypixels = (back_colour * SH_ROWS).each_slice(back_colour.length).to_a
+      @canvas = (ypixels * SH_COLS).each_slice(SH_ROWS).to_a
     end
     
     def set_rotation(r, redraw = true)
@@ -63,6 +65,15 @@ module SenseHatAPI
     def gamma_reset
     end
 
-    
+    private
+    # Flush the canvas to the LED matrix
+    def flush
+      seq = @canvas
+            .flatten(1)
+            .map{ |r,g,b| (((r & 0xff) >> 3) << 11) + (((g & 0xff) >> 2) << 5) + ((b & 0xff) >> 3)  }
+      open(@framebuffer, 'rb+') do |fb|
+        fb.write seq.pack('S<' * seq.length)
+      end      
+    end
   end
 end
