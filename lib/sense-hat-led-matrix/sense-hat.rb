@@ -1,9 +1,18 @@
 module SenseHatAPI
   WHITE = [255, 255, 255]
   BLACK = [0, 0, 0]
+
+  SH_ROWS = 8 #y := {0 .. 7}
+  SH_COLS = 8 #x := {0 .. 7}
+  SH_BITS_R = 5
+  SH_BITS_G = 6
+  SH_BITS_B = 5
   
   class SenseHat
-    def initialize(framebuffer='/dev/fb1')
+    def initialize(framebuffer: '/dev/fb1', back_colour: BLACK)
+      # since we wish to address as [x, y], x must address a vector of y pixels
+      ypixels = (back_colour * SH_ROWS).combination(back_colour.length).to_a
+      @canvas = (ypixels * SH_COLS).combination(SH_ROWS)
     end
     
     def set_rotation(r, redraw = true)
