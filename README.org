@@ -1,0 +1,38 @@
+* sense-hat-led-matrix
+  
+  If you have the Raspberry Pi 3 with the Sense Hat, and you prefer Ruby over the default Python,
+  this is for you. It is not fair that the Python guys get to enjoy all the fun here, so I'm
+  fixing that.
+
+  This module only covers the 8x8 LED display, and as much as possible attempts to follow the
+  Python API as defined by [[https://pythonhosted.org/sense-hat/api/#led-matrix][LED Matrix]].
+
+  Eventually, I'll cover the Environmental Sensors and the IMU Sensor, as time permits. But
+  for now, you can get started in participating in the awesomeness of the Raspberry Pi Sense Hat
+  in your favorite language.
+
+** Installation
+
+** Use
+
+** Examples
+
+** Release Notes
+
+** Known Issues
+
+** Contributing to Ruby Support for sense-hat-led-matrix and others
+
++ Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
++ Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
++ Fork the project.
++ Start a feature/bugfix branch.
++ Commit and push until you are happy with your contribution.
++ Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
++ Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+** Copyright
+
+Copyright (c) 2016 Fred Mitchell. See LICENSE.txt for
+further details.
+
