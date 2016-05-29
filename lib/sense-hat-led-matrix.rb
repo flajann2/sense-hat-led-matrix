@@ -1,6 +1,3 @@
-
-
-
 module SenseHatAPI
 end
 
