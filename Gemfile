@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-gem "semver", "~> 1"
+gem "semver2", "~> 3"
 
 group :development do
   gem "rspec", "~> 2"
